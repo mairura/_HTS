@@ -1,7 +1,8 @@
 "use client";
+import React from 'react';
 
-import ThemeContext from "@/context/themeContext";
 import { useEffect, useState } from "react";
+import ThemeContext from '../../context/themeContext';
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const themeFromStorage: boolean =

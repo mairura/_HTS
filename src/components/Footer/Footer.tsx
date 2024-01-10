@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Link from "next/link";
 import { BsFillSendFill, BsTelephoneOutbound } from "react-icons/bs";
 import { BiMessageDetail } from "react-icons/bi";

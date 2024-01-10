@@ -1,10 +1,11 @@
 "use client";
+import React from 'react';
 
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
-import ThemeContext from "@/context/themeContext";
+import ThemeContext from '../../context/themeContext';
 
 const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
