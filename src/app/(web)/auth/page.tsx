@@ -1,9 +1,12 @@
 "use client";
-import React from 'react';
+import React from "react";
 
 import { ChangeEvent, useState } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
+import { signUp } from "next-auth-sanity/client";
+import { signIn, useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 const defaultFormData = {
   email: "",
@@ -22,16 +25,21 @@ const Auth = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
+      const user = await signUp(formData);
+      if(user) {
+        toast.success("Success. Please sign in")
+      }
       console.log(formData);
     } catch (error) {
       console.log(error);
+      toast.error("Error. Please try again");
     } finally {
       setFormData(defaultFormData);
     }
   };
 
   const inputStyles =
-    "border border-gray-300 sm:text-sm text-black rounded:lg block w-full p-2.5 focus:outline-none";
+    "border border-gray-300 sm:text-sm text-black rounded-lg block w-full p-2.5 focus:outline-none";
   return (
     <section className="container mx-auto">
       <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-80 md:w-[70%] mx-auto">
