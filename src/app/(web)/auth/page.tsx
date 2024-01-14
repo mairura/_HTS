@@ -22,12 +22,25 @@ const Auth = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const { data: session } = useSession();
+
+  console.log("Session", session);
+
+  const loginHandler = async () => {
+    try {
+      await signIn();
+    } catch (error) {
+      console.log("Something went wrong");
+      toast.error("Error. Please try again");
+    }
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       const user = await signUp(formData);
-      if(user) {
-        toast.success("Success. Please sign in")
+      if (user) {
+        toast.success("Success. Please sign in");
       }
       console.log(formData);
     } catch (error) {
@@ -49,9 +62,15 @@ const Auth = () => {
           </h1>
           <p>OR</p>
           <span className="inline-flex items-center">
-            <AiFillGithub className="mr-3 text-4xl cursor-pointer text-black dark:text-white" />{" "}
+            <AiFillGithub
+              onClick={loginHandler}
+              className="mr-3 text-4xl cursor-pointer text-black dark:text-white"
+            />{" "}
             |
-            <FcGoogle className="ml-3 text-4xl cursor-pointer" />
+            <FcGoogle
+              onClick={loginHandler}
+              className="ml-3 text-4xl cursor-pointer"
+            />
           </span>
         </div>
         <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
@@ -92,7 +111,9 @@ const Auth = () => {
           </button>
         </form>
 
-        <button className="text-blue-700 underline">Login</button>
+        <button onClick={loginHandler} className="text-blue-700 underline">
+          Login
+        </button>
       </div>
     </section>
   );
