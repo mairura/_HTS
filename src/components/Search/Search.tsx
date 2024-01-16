@@ -45,6 +45,7 @@ const Search: FC<Props> = ({
             <select
               onChange={handleRoomTypechange}
               value={roomTypeFilter}
+              title="Select Room Type"
               className="w-full px-4 py-2 capitalize rounded leading-tight dark:bg-black focus:outline-none"
             >
               <option value="All">All</option>
