@@ -8,7 +8,7 @@ import React from "react";
 
 const Home = async () => {
   const featuredRoom = await getFeaturedRoom();
-  console.log("Featured Room", featuredRoom);
+
   return (
     <>
       <HeroSection />
