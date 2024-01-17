@@ -23,7 +23,7 @@ export type Room = {
   description: string;
   dimension: string;
   discount: number;
-  imags: Image[];
+  images: Image[];
   isBooked: boolean;
   isFeatured: boolean;
   name: string;
