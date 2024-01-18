@@ -1,12 +1,12 @@
 import { Room } from "@/models/room";
 import Image from "next/image";
 import Link from "next/link";
-import { describe } from "node:test";
 import { FC } from "react";
 
 type Props = {
   room: Room;
 };
+
 const RoomCard: FC<Props> = (props) => {
   const {
     room: { coverImage, name, price, type, description, slug, isBooked },
