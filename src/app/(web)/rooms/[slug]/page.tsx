@@ -4,6 +4,7 @@ import { getRoom } from "@/libs/apis";
 import { get } from "http";
 import useSWR from "swr";
 import LoadingSpinner from "../../loading";
+import HotelPhotoGallery from "@/components/HotelPhotoGallery/HotelPhotoGallery";
 
 const RoomDetails = (props: { params: { slug: string } }) => {
   const {
@@ -22,7 +23,11 @@ const RoomDetails = (props: { params: { slug: string } }) => {
 
   console.log("Room", room);
 
-  return <div>RoomDetails</div>;
+  return (
+    <div>
+      <HotelPhotoGallery photos={room.images} />
+    </div>
+  );
 };
 
 export default RoomDetails;
