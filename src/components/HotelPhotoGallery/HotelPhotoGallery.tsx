@@ -46,6 +46,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
               width={150}
               height={150}
               onClick={openModal.bind(this, 0)}
+              priority
             />
           </div>
           <div className="md:hidden flex justify-center items-center w-full h-full">
@@ -82,6 +83,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
                 className="scale-animation img"
                 width={150}
                 height={150}
+                priority
               />
             </div>
           ))}
